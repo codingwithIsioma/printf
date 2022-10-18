@@ -14,7 +14,6 @@ int parser(const char *format, va_list spec_list, conver_t fmt[])
 {
 	int i, j, ret_val, count = 0;
 
-	/* Loops through the given string */
 	for (i = 0; format[i] != '\0'; i++)
 	{
 		/* Checks for a specifer and if not */
@@ -25,12 +24,13 @@ int parser(const char *format, va_list spec_list, conver_t fmt[])
 		}
 		else
 		{
-			/* Loops through the struct */
 			for (j = 0; fmt[j].spec != NULL; j++)
 			{
 				if (fmt[j].spec[0] == format[i + 1])
 				{
 					ret_val = fmt[j].func_spec(spec_list);
+					if (ret_val == -1)
+						return (-1);
 					count += ret_val;
 					break;
 				}
