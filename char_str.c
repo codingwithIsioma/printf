@@ -25,7 +25,7 @@ int print_string(va_list spec_list)
 	char *str;
 
 	str = (va_arg(spec_list, char*));
-	if (str == 0)
+	if (str == NULL)
 		str = "(null)";
 	for (i = 0; str[i] != '\0'; i++)
 		_putchar(str[i]);
