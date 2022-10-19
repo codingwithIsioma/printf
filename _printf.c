@@ -13,6 +13,11 @@ int _printf(const char *format, ...)
 		{"%", print_percent},
 		{"d", print_integer},
 		{"i", print_integer},
+		{"u", print_unsig_int},
+		{"b", print_binary},
+		{"o", print_octal},
+		{"x", print_hex_Lowcase},
+		{"X", print_hex_Upcase},
 		{NULL, NULL}
 	};
 	int count;
