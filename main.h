@@ -41,5 +41,8 @@ int print_octal(va_list);
 int print_hex_Upcase(va_list);
 int print_hex_Lowcase(va_list);
 int bin_oct_hex_converter(unsigned int, int, int);
+int print_stringUpcase(va_list);
+int print_revStr(va_list);
+int print_rot13(va_list);
 
 #endif
