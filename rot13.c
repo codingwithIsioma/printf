@@ -31,5 +31,5 @@ int print_rot13(va_list spec_list)
 			}
 		}
 	}
-	return (0);
+	return (count);
 }
