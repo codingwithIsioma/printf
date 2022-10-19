@@ -14,7 +14,7 @@ int parser(const char *format, va_list spec_list, conver_t fmt[])
 {
 	int i, j, ret_val, count = 0;
 
-	for (i = 0; format[i] != '\0'; i++)
+	for (i = 0; format && format[i] != '\0'; i++)
 	{
 		/* Checks for a specifer and if not */
 		if (format[i] != '%')
@@ -29,9 +29,8 @@ int parser(const char *format, va_list spec_list, conver_t fmt[])
 				if (fmt[j].spec[0] == format[i + 1])
 				{
 					ret_val = fmt[j].func_spec(spec_list);
-					if (ret_val == -1)
-						return (-1);
 					count += ret_val;
+					i++;
 					break;
 				}
 			}
@@ -42,11 +41,11 @@ int parser(const char *format, va_list spec_list, conver_t fmt[])
 					_putchar(format[i]);
 					_putchar(format[i + 1]);
 					count += 2;
+					i++;
 				}
 				else
 					return (-1);
 			}
-			i = i + 1;
 		}
 	}
 	if (format == NULL)
